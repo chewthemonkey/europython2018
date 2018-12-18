@@ -1,0 +1,15 @@
+    
+rules:
+  DeprecatedFnCall:
+    description: "`deprecated_fn` will be deprecated in v9.1.2. Please use `new_fn` instead."
+    expr: //Call[func/Name/@id='deprecated_fn']
+    example: "deprecated_fn(*values)"
+    instead: "new_fn(values)"
+        
+default_settings: !settings
+  included:
+    - ~+/*
+  excluded:
+    - ~+/tests/*
+    - ~+/.tox/*
+  allow_ignore: yes
